@@ -43,7 +43,7 @@ export function Projects() {
               </Badge>
             </div>
 
-            <h3 className="serif mt-5 text-4xl sm:text-5xl">
+            <h3 className="display mt-5 text-4xl sm:text-5xl">
               {featured.title}
             </h3>
 

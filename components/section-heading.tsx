@@ -4,7 +4,7 @@ import { Reveal } from '@/components/reveal';
 
 /**
  * Section header: the index sits out in the left margin on wide screens, the
- * title carries the serif voice.
+ * title carries the display voice.
  */
 export function SectionHeading({
   index,
@@ -34,7 +34,7 @@ export function SectionHeading({
         <span className="mono-xs text-acid-ink">{command}</span>
       </div>
 
-      <h2 className="serif mt-4 text-4xl sm:text-5xl">{title}</h2>
+      <h2 className="display mt-4 text-4xl sm:text-5xl">{title}</h2>
 
       {description ? (
         <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">

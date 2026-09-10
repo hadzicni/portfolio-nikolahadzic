@@ -139,7 +139,7 @@
   --color-acid-ink: var(--acid-ink);
   --color-acid-foreground: var(--acid-foreground);
   --color-hot: var(--hot);
-  --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
 }
 
 :root {
@@ -227,11 +227,19 @@
 }
 
 @layer utilities {
-  /* The serif voice: headlines and section titles. */
-  .serif {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    letter-spacing: -0.02em;
+  /* The display voice: headlines and section titles. */
+  .display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 0.94;
+  }
+
+  /* The same face, dialled back — used for the second line of a headline. */
+  .display-soft {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
     line-height: 0.98;
   }
 

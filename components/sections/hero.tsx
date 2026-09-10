@@ -27,11 +27,10 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="serif mt-6 text-[clamp(2.75rem,7vw,5.5rem)]">
+          <h2 className="display mt-6 text-[clamp(2.5rem,6vw,4.75rem)]">
             <ScrambleText text="Nikola Hadzic" />
-            <span className="mt-1 block text-muted-foreground italic">
-              builds software that stays
-              <br className="hidden sm:block" /> readable at scale.
+            <span className="display-soft mt-2 block text-balance text-muted-foreground">
+              builds software that stays readable at scale.
             </span>
           </h2>
         </Reveal>

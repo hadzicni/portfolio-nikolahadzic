@@ -22,7 +22,7 @@ export function About() {
       </Reveal>
 
       <Reveal delay={80}>
-        <blockquote className="serif mt-12 max-w-2xl text-3xl text-foreground italic sm:text-4xl">
+        <blockquote className="display mt-12 max-w-2xl border-l-2 border-acid pl-6 text-3xl text-foreground sm:text-4xl">
           &ldquo;{profile.quote}&rdquo;
         </blockquote>
       </Reveal>

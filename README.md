@@ -12,7 +12,7 @@ bottom of the window in the spirit of tmux.
 - [Tailwind CSS](https://tailwindcss.com) v4
 - [shadcn/ui](https://ui.shadcn.com) on [Base UI](https://base-ui.com)
 - [next-themes](https://github.com/pacocoursey/next-themes) for light/dark
-- Instrument Serif, Inter and JetBrains Mono via `next/font`
+- Bricolage Grotesque, Inter and JetBrains Mono via `next/font`
 
 ## What is on the page
 
@@ -42,7 +42,7 @@ stack, projects, ticker strings, boot lines and the terminal's command list.
 The sections in `components/sections/` render from that file, so text changes
 rarely need a component change.
 
-Design tokens (the warm paper palette, the green accent, the `serif`/`ruled`
+Design tokens (the warm paper palette, the green accent, the `display`/`ruled`
 utilities and the always-dark `terminal-dark` surface) sit at the bottom of
 [`app/globals.css`](app/globals.css).
 

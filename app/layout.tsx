@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Inter, Instrument_Serif, JetBrains_Mono } from "next/font/google"
+import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google"
 
 import { profile } from "@/lib/content"
 import { BootScreen } from "@/components/boot-screen"
@@ -14,10 +14,8 @@ const sans = Inter({
   subsets: ["latin"],
 })
 
-const serif = Instrument_Serif({
-  variable: "--font-serif",
-  weight: "400",
-  style: ["normal", "italic"],
+const display = Bricolage_Grotesque({
+  variable: "--font-display",
   subsets: ["latin"],
 })
 
@@ -68,7 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${sans.variable} ${serif.variable} ${mono.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col pb-9">
         <ThemeProvider

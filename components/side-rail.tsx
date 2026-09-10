@@ -37,7 +37,7 @@ export function SideRail() {
             <span className="mono-xs text-muted-foreground">
               {profile.handle}
             </span>
-            <h1 className="serif mt-1 text-3xl">{profile.name}</h1>
+            <h1 className="display mt-1 text-3xl">{profile.name}</h1>
             <p className="mt-2 text-sm text-muted-foreground">
               {profile.role}
             </p>
@@ -104,7 +104,7 @@ export function SideRail() {
       {/* Mobile bar */}
       <header className="sticky top-0 z-40 flex h-14 items-center gap-3 border-b border-border/70 bg-background/85 px-5 backdrop-blur-md lg:hidden">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="serif text-lg">{profile.name}</span>
+          <span className="display text-lg">{profile.name}</span>
           <span className="mono-xs text-muted-foreground">
             {profile.handle}
           </span>
