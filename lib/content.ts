@@ -27,6 +27,53 @@ export const facts = [
   { label: 'Open to', value: 'Collaboration' },
 ] as const;
 
+/**
+ * The career timeline, newest first.
+ *
+ * Everything marked `20XX` is a placeholder — replace those with your real
+ * dates, and fill in the education entry, before this goes live.
+ */
+export type CareerEntry = {
+  kind: 'work' | 'education';
+  /** Shown on the left. Use "present" for the running position. */
+  period: string;
+  title: string;
+  /** Employer or school. */
+  organisation: string;
+  location: string;
+  summary: string;
+  highlights?: string[];
+  /** Marks the entry as still running, which highlights it in the timeline. */
+  current?: boolean;
+};
+
+export const career: CareerEntry[] = [
+  {
+    kind: 'work',
+    period: '20XX — present',
+    title: 'Software Developer',
+    organisation: 'University Hospital Basel',
+    location: 'Basel, Switzerland',
+    current: true,
+    summary:
+      'Build and maintain internal applications that clinical and administrative staff rely on during their working day.',
+    highlights: [
+      'Full stack work end to end, from the database schema and the API to the interface.',
+      'Keep long-lived applications maintainable through clear boundaries and consistent structure.',
+      'Containerise services and automate builds and releases with Docker and GitHub Actions.',
+    ],
+  },
+  {
+    kind: 'education',
+    period: '20XX — 20XX',
+    title: 'PLACEHOLDER — your qualification',
+    organisation: 'PLACEHOLDER — school or university',
+    location: 'Switzerland',
+    summary:
+      'PLACEHOLDER — one sentence on the focus of the programme, or delete this entry.',
+  },
+];
+
 export type StackGroup = {
   id: string;
   label: string;
@@ -124,9 +171,10 @@ export const principles = [
 
 export const navigation = [
   { href: '#whoami', label: 'whoami', index: '01' },
-  { href: '#stack', label: 'stack', index: '02' },
-  { href: '#projects', label: 'projects', index: '03' },
-  { href: '#contact', label: 'contact', index: '04' },
+  { href: '#career', label: 'career', index: '02' },
+  { href: '#stack', label: 'stack', index: '03' },
+  { href: '#projects', label: 'projects', index: '04' },
+  { href: '#contact', label: 'contact', index: '05' },
 ] as const;
 
 /** Scrolling banner strings. Two rows, running in opposite directions. */

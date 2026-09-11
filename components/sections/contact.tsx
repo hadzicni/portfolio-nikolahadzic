@@ -35,7 +35,7 @@ export function Contact() {
       className="scroll-mt-20 border-t border-border/70 py-20 sm:py-28"
     >
       <SectionHeading
-        index="04"
+        index="05"
         command="./say-hello.sh"
         title="Let's talk"
         description="Open to interesting projects, collaboration and a good argument about architecture. Email is the fastest route."

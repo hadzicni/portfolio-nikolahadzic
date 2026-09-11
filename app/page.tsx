@@ -2,6 +2,7 @@ import { SideRail } from '@/components/side-rail';
 import { SiteFooter } from '@/components/site-footer';
 import { StatusBar } from '@/components/status-bar';
 import { About } from '@/components/sections/about';
+import { Career } from '@/components/sections/career';
 import { Contact } from '@/components/sections/contact';
 import { Hero } from '@/components/sections/hero';
 import { Projects } from '@/components/sections/projects';
@@ -20,6 +21,7 @@ export default function Home() {
           <main>
             <Hero />
             <About />
+            <Career />
             <Stack />
             <Projects />
             <Contact />

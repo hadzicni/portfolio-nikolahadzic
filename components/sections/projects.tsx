@@ -45,7 +45,7 @@ export async function Projects() {
       className="scroll-mt-20 border-t border-border/70 py-20 sm:py-28"
     >
       <SectionHeading
-        index="03"
+        index="04"
         command="git log --oneline"
         title="Things I built"
         description="Side projects and tooling, mostly born from a problem I ran into myself. All of it is public, and the numbers come straight from GitHub."

@@ -9,7 +9,7 @@ export function Stack() {
       className="scroll-mt-20 border-t border-border/70 py-20 sm:py-28"
     >
       <SectionHeading
-        index="02"
+        index="03"
         command="ls ~/toolbox"
         title="The toolbox"
         description="Picked for the job rather than the hype cycle. These are the things I use often enough to know their sharp edges."

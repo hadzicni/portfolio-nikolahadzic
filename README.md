@@ -21,6 +21,7 @@ bottom of the window in the spirit of tmux.
   `contact`, `neofetch`, `theme` or `clear`. Arrow keys walk the history.
 - A status line showing the current section, scroll progress and the local
   time in Basel.
+- A career timeline, newest first, with the running position marked.
 - A command palette on `Cmd/Ctrl+K` for jumping to sections and opening repos.
 - A curated projects list whose numbers are live: stars, language and last
   push come from the GitHub API. A failed request falls back to the copy in
@@ -45,6 +46,9 @@ All copy lives in [`lib/content.ts`](lib/content.ts) — profile details, tech
 stack, projects, ticker strings, boot lines and the terminal's command list.
 The sections in `components/sections/` render from that file, so text changes
 rarely need a component change.
+
+The career timeline lives in [`lib/career.ts`](lib/career.ts), one entry per
+position or qualification.
 
 The projects list is deliberately closed: only what `lib/content.ts` names is
 shown, in the order it names it, with its hand-written description.
