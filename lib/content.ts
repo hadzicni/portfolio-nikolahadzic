@@ -1,14 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import {
-  Boxes,
-  Container,
-  Database,
-  FileTerminal,
-  GitBranch,
-  Layers,
-  Server,
-  TerminalSquare,
-} from 'lucide-react';
+import { Boxes, Container, Database, Layers, TerminalSquare } from 'lucide-react';
 
 export const profile = {
   name: 'Nikola Hadzic',
@@ -101,26 +92,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: 'dotfiles',
-    title: 'Dotfiles',
-    description:
-      'My shell, editor and terminal setup, versioned and reproducible on a fresh machine.',
-    language: 'Shell',
-    tags: ['Shell', 'Setup'],
-    repo: 'https://github.com/hadzicni/dotfiles',
-    icon: FileTerminal,
-  },
-  {
-    name: 'spring-boot-banner',
-    title: 'Spring Boot Banner',
-    description:
-      'A small, reusable banner.txt for Spring Boot services, so every app starts with the same identity.',
-    language: 'Java',
-    tags: ['Spring Boot', 'Java'],
-    repo: 'https://github.com/hadzicni/spring-boot-banner',
-    icon: Server,
-  },
-  {
     name: 'ssh-tunnel-pwsh',
     title: 'SSH Tunnel for PowerShell',
     description:
@@ -129,26 +100,6 @@ export const projects: Project[] = [
     tags: ['PowerShell', 'Networking'],
     repo: 'https://github.com/hadzicni/ssh-tunnel-pwsh',
     icon: TerminalSquare,
-  },
-  {
-    name: 'shell-scripts',
-    title: 'Shell Scripts',
-    description:
-      'A growing collection of scripts for the small automation jobs that would otherwise stay manual.',
-    language: 'Shell',
-    tags: ['Bash', 'Automation'],
-    repo: 'https://github.com/hadzicni/shell-scripts',
-    icon: GitBranch,
-  },
-  {
-    name: 'neovim-config',
-    title: 'Neovim Config',
-    description:
-      'A Lua configuration tuned for full stack work: LSP, treesitter and as little friction as possible.',
-    language: 'Lua',
-    tags: ['Lua', 'Neovim'],
-    repo: 'https://github.com/hadzicni/neovim-config',
-    icon: FileTerminal,
   },
 ];
 
