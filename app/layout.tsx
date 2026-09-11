@@ -46,19 +46,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: profile.name, url: profile.website }],
   creator: profile.name,
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: profile.website,
-    siteName: profile.name,
-    title: `${profile.name} — ${profile.role}`,
-    description,
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: `${profile.name} — ${profile.role}`,
-    description,
-  },
   icons: { icon: '/favicon.ico' },
 };
 
