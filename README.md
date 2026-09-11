@@ -22,7 +22,7 @@ bottom of the window in the spirit of tmux.
 - A status line showing the current section, scroll progress and the local
   time in Basel.
 - A career timeline, newest first, with the running position marked.
-- A command palette on `Cmd/Ctrl+K` for jumping to sections and opening repos.
+- A command palette on `Cmd/Ctrl+K` for sections, repositories and actions.
 - A curated projects list whose numbers are live: stars, language and last
   push come from the GitHub API. A failed request falls back to the copy in
   `lib/content.ts`.
@@ -42,13 +42,11 @@ The site runs at http://localhost:3000.
 
 ## Editing the content
 
-All copy lives in [`lib/content.ts`](lib/content.ts) — profile details, tech
-stack, projects, ticker strings, boot lines and the terminal's command list.
+All copy lives in [`lib/content.ts`](lib/content.ts) — profile details, the
+career timeline, tech stack, projects, ticker strings, boot lines and the
+terminal's command list.
 The sections in `components/sections/` render from that file, so text changes
 rarely need a component change.
-
-The career timeline lives in [`lib/career.ts`](lib/career.ts), one entry per
-position or qualification.
 
 The projects list is deliberately closed: only what `lib/content.ts` names is
 shown, in the order it names it, with its hand-written description.

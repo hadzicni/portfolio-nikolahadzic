@@ -226,36 +226,36 @@
   }
 }
 
+/* The display voice: headlines and section titles. */
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+}
+
+/* The same face, dialled back — used for the second line of a headline. */
+@utility display-soft {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
+@utility label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+@utility mono-xs {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+}
+
 @layer utilities {
-  /* The display voice: headlines and section titles. */
-  .display {
-    font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: -0.035em;
-    line-height: 0.94;
-  }
-
-  /* The same face, dialled back — used for the second line of a headline. */
-  .display-soft {
-    font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 0.98;
-  }
-
-  .label {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-  }
-
-  .mono-xs {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.02em;
-  }
-
   .hairline {
     border-color: color-mix(in oklch, var(--border), transparent 15%);
   }
