@@ -38,7 +38,7 @@ npm install
 npm run dev
 ```
 
-The site runs at http://localhost:3000.
+The site runs at [localhost:3000](http://localhost:3000).
 
 ## Editing the content
 
