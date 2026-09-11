@@ -34,7 +34,7 @@ export function Career() {
                 <span
                   aria-hidden
                   className={cn(
-                    'absolute top-2 left-[5px] w-px bg-border sm:left-[calc(9rem+2rem+5px)]',
+                    'absolute top-2 left-1.25 w-px bg-border sm:left-[calc(9rem+2rem+5px)]',
                     i === career.length - 1 ? 'h-0' : 'bottom-0'
                   )}
                 />
@@ -48,7 +48,7 @@ export function Career() {
                   <span
                     aria-hidden
                     className={cn(
-                      'absolute top-2 left-0 size-[11px] rounded-full border-2 border-background ring-1',
+                      'absolute top-2 left-0 size-2.75 rounded-full border-2 border-background ring-1',
                       entry.current
                         ? 'bg-acid ring-acid'
                         : 'bg-muted-foreground/40 ring-border'
