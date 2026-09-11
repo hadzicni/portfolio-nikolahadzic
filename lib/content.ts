@@ -30,8 +30,7 @@ export const facts = [
 /**
  * The career timeline, newest first.
  *
- * Everything marked `20XX` is a placeholder — replace those with your real
- * dates, and fill in the education entry, before this goes live.
+ * Everything marked `20XX` or PLACEHOLDER still needs your real values.
  */
 export type CareerEntry = {
   kind: 'work' | 'education';
@@ -49,28 +48,14 @@ export type CareerEntry = {
 
 export const career: CareerEntry[] = [
   {
-    kind: 'work',
-    period: '20XX — present',
-    title: 'Software Developer',
-    organisation: 'University Hospital Basel',
-    location: 'Basel, Switzerland',
-    current: true,
-    summary:
-      'Build and maintain internal applications that clinical and administrative staff rely on during their working day.',
-    highlights: [
-      'Full stack work end to end, from the database schema and the API to the interface.',
-      'Keep long-lived applications maintainable through clear boundaries and consistent structure.',
-      'Containerise services and automate builds and releases with Docker and GitHub Actions.',
-    ],
-  },
-  {
     kind: 'education',
-    period: '20XX — 20XX',
-    title: 'PLACEHOLDER — your qualification',
-    organisation: 'PLACEHOLDER — school or university',
-    location: 'Switzerland',
+    period: '2023 — present',
+    title: 'Informatiker EFZ, Applikationsentwicklung',
+    organisation: 'University Hospital Basel / BBZBL',
+    location: 'Basel, Switzerland',
     summary:
-      'PLACEHOLDER — one sentence on the focus of the programme, or delete this entry.',
+      'Swiss federal diploma of vocational education and training in computer science, specialising in application development. Four years of working and studying in parallel, which is where the habit of building things end to end comes from.',
+    current: true,
   },
 ];
 
