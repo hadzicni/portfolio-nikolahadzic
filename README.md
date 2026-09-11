@@ -65,5 +65,17 @@ npm run build
 npm run start
 ```
 
+## Checks
+
+```bash
+npm run typecheck
+npm run lint
+```
+
+Both run in CI on every push and pull request via
+`.github/workflows/lint.yml`.
+
 A `Dockerfile` is included and the image is published by the workflow in
-`.github/workflows/docker-publish.yml`.
+`.github/workflows/docker-publish.yml`. That workflow runs independently of the
+checks above — add `needs: lint` to it if you want a failing lint to block the
+deploy.
