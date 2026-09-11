@@ -9,6 +9,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { profile } from '@/lib/content';
 import Script from 'next/script';
 import './globals.css';
+import { ReactNode } from 'react';
 
 const sans = Inter({
   variable: '--font-sans',
@@ -49,7 +50,7 @@ export const metadata: Metadata = {
   icons: { icon: '/favicon.ico' },
 };
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<'/'>) {
           <CommandPalette />
           <Toaster position="bottom-right" />
         </ThemeProvider>
+
         <Script
           src="https://analytics.nikolahadzic.dev/script.js"
           data-website-id="00a09483-5987-4444-97a4-cb3594379b90"
