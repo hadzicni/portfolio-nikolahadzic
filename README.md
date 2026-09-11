@@ -22,6 +22,10 @@ bottom of the window in the spirit of tmux.
 - A status line showing the current section, scroll progress and the local
   time in Basel.
 - A command palette on `Cmd/Ctrl+K` for jumping to sections and opening repos.
+- A curated projects list whose numbers are live: stars, language and last
+  push come from the GitHub API. A failed request falls back to the copy in
+  `lib/content.ts`.
+- A 404 page that answers the way a shell would.
 - Scroll reveals, a scrambling headline and a slow keyword ticker.
 
 Every motion effect is disabled under `prefers-reduced-motion`.
@@ -41,6 +45,12 @@ All copy lives in [`lib/content.ts`](lib/content.ts) — profile details, tech
 stack, projects, ticker strings, boot lines and the terminal's command list.
 The sections in `components/sections/` render from that file, so text changes
 rarely need a component change.
+
+The projects list is deliberately closed: only what `lib/content.ts` names is
+shown, in the order it names it, with its hand-written description.
+[`lib/github.ts`](lib/github.ts) merges in stars, language and last push once
+an hour and nothing else — a repository that is not in the content file never
+reaches the page.
 
 Design tokens (the warm paper palette, the green accent, the `display`/`ruled`
 utilities and the always-dark `terminal-dark` surface) sit at the bottom of

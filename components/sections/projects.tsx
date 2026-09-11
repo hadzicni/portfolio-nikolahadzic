@@ -1,14 +1,43 @@
-import { ArrowUpRightIcon, ExternalLinkIcon } from 'lucide-react';
+import { ArrowUpRightIcon, ExternalLinkIcon, StarIcon } from 'lucide-react';
 
-import { profile, projects } from '@/lib/content';
+import { profile } from '@/lib/content';
+import { getProjects, timeAgo, type ProjectEntry } from '@/lib/github';
 import { GithubIcon } from '@/components/icons';
 import { LinkButton } from '@/components/link-button';
 import { Reveal } from '@/components/reveal';
 import { SectionHeading } from '@/components/section-heading';
 import { Badge } from '@/components/ui/badge';
 
-export function Projects() {
-  const [featured, ...rest] = projects;
+/** Stars and last push, shown only where GitHub actually answered. */
+function Stats({ project }: { project: ProjectEntry }) {
+  const { stats } = project;
+  const language = stats?.language || project.language;
+
+  return (
+    <span className="mono-xs flex items-center gap-3 text-muted-foreground">
+      {language ? <span>{language}</span> : null}
+      {stats && stats.stars > 0 ? (
+        <span className="flex items-center gap-1">
+          <StarIcon className="size-3" />
+          {stats.stars}
+        </span>
+      ) : null}
+      {stats ? <span>{timeAgo(stats.pushedAt)}</span> : null}
+    </span>
+  );
+}
+
+export async function Projects() {
+  const entries = await getProjects();
+  const [featured, ...rest] = entries;
+  const live = entries.some((entry) => entry.stats !== null);
+
+  // The live language already appears in the stats line, so drop it from the
+  // hand-written tag list to avoid printing it twice.
+  const featuredLanguage = featured.stats?.language || featured.language;
+  const featuredTags = featured.tags.filter(
+    (tag) => tag.toLowerCase() !== featuredLanguage.toLowerCase()
+  );
 
   return (
     <section
@@ -19,7 +48,7 @@ export function Projects() {
         index="03"
         command="git log --oneline"
         title="Things I built"
-        description="Side projects and tooling, mostly born from a problem I ran into myself. All of it is public."
+        description="Side projects and tooling, mostly born from a problem I ran into myself. All of it is public, and the numbers come straight from GitHub."
       />
 
       <Reveal delay={80} className="mt-12">
@@ -51,11 +80,16 @@ export function Projects() {
               {featured.description}
             </p>
 
-            <ul className="mono-xs mt-5 flex flex-wrap gap-x-4 gap-y-2 text-muted-foreground">
-              {featured.tags.map((tag) => (
-                <li key={tag}>{tag}</li>
-              ))}
-            </ul>
+            <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+              <Stats project={featured} />
+              {featuredTags.length ? (
+                <ul className="mono-xs flex flex-wrap gap-x-4 gap-y-2 text-muted-foreground">
+                  {featuredTags.map((tag) => (
+                    <li key={tag}>{tag}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
 
             <div className="mt-7 flex flex-wrap gap-2.5">
               {featured.demo ? (
@@ -84,12 +118,12 @@ export function Projects() {
 
       <ol className="mt-14 border-t border-border/70">
         {rest.map((project, i) => (
-          <Reveal key={project.name} delay={i * 50} as="li">
+          <Reveal key={project.name} delay={Math.min(i, 4) * 50} as="li">
             <a
               href={project.repo}
               target="_blank"
               rel="noreferrer noopener"
-              className="group/row grid items-baseline gap-x-6 gap-y-2 border-b border-border/70 py-6 transition-colors hover:bg-muted/40 sm:grid-cols-[3rem_1fr_8rem] sm:px-2"
+              className="group/row grid items-baseline gap-x-6 gap-y-2 border-b border-border/70 py-6 transition-colors hover:bg-muted/40 sm:grid-cols-[3rem_1fr_11rem] sm:px-2"
             >
               <span className="mono-xs text-muted-foreground/70">
                 {String(i + 2).padStart(2, '0')}
@@ -105,15 +139,15 @@ export function Projects() {
                 </span>
               </span>
 
-              <span className="mono-xs text-muted-foreground sm:text-right">
-                {project.language}
+              <span className="sm:justify-self-end">
+                <Stats project={project} />
               </span>
             </a>
           </Reveal>
         ))}
       </ol>
 
-      <Reveal delay={60} className="mt-8">
+      <Reveal delay={60} className="mt-8 flex flex-wrap items-center gap-4">
         <LinkButton
           href={profile.github}
           external
@@ -123,6 +157,13 @@ export function Projects() {
           <GithubIcon data-icon="inline-start" />
           Every repository on GitHub
         </LinkButton>
+
+        {live ? (
+          <span className="mono-xs flex items-center gap-2 text-muted-foreground">
+            <span className="size-1.5 rounded-full bg-acid" />
+            synced from the GitHub API
+          </span>
+        ) : null}
       </Reveal>
     </section>
   );

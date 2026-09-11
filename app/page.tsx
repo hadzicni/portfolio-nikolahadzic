@@ -7,6 +7,9 @@ import { Hero } from '@/components/sections/hero';
 import { Projects } from '@/components/sections/projects';
 import { Stack } from '@/components/sections/stack';
 
+/** The projects section reads GitHub, so the page refreshes hourly. */
+export const revalidate = 3600;
+
 export default function Home() {
   return (
     <>
