@@ -46,6 +46,13 @@ COPY . .
 
 ENV NODE_ENV=production
 
+# Build provenance. `.git` is excluded from the build context, so CI passes the
+# commit and the timestamp in; without them the page just omits the build line.
+ARG BUILD_COMMIT=""
+ARG BUILD_TIME=""
+ENV BUILD_COMMIT=${BUILD_COMMIT}
+ENV BUILD_TIME=${BUILD_TIME}
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.

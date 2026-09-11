@@ -23,8 +23,15 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
 
+      # `.git` is excluded from the Docker build context, so the commit and the
+      # timestamp are handed to the build instead of read from the repository.
       - name: Build Docker image
-        run: docker build -t registry.svc.lan/frontend/portfolio-nikolahadzic:latest .
+        run: |
+          docker build \
+            --build-arg BUILD_COMMIT="${{ github.sha }}" \
+            --build-arg BUILD_TIME="$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            -t registry.svc.lan/frontend/portfolio-nikolahadzic:latest \
+            .
 
       - name: Push image
         run: docker push registry.svc.lan/frontend/portfolio-nikolahadzic:latest

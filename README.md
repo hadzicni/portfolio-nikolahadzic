@@ -18,9 +18,10 @@ bottom of the window in the spirit of tmux.
 
 - A boot sequence in a floating terminal window, once per browser session.
 - A working shell in the hero. Type `help`, `whoami`, `stack`, `projects`,
-  `contact`, `neofetch`, `theme` or `clear`. Arrow keys walk the history.
-- A status line showing the current section, scroll progress and the local
-  time in Basel.
+  `contact`, `neofetch`, `uptime`, `theme` or `clear`. Arrow keys walk the
+  history.
+- A status line showing the current section, scroll progress, the commit the
+  page was built from and the local time in Basel.
 - A career timeline, newest first, with the running position marked.
 - A command palette on `Cmd/Ctrl+K` for sections, repositories and actions.
 - A curated projects list whose numbers are live: stars, language and last
@@ -75,7 +76,22 @@ npm run lint
 Both run in CI on every push and pull request via
 `.github/workflows/lint.yml`.
 
+### Build provenance
+
+The status line links the commit the bundle was built from, and the terminal's
+`uptime` reports how long that build has been live. Both read values inlined by
+the `env` block in `next.config.ts`.
+
+Locally the commit comes from `git rev-parse`. `.git` is excluded from the
+Docker build context, so the image build takes it as arguments instead:
+
+```bash
+docker build   --build-arg BUILD_COMMIT="$(git rev-parse HEAD)"   --build-arg BUILD_TIME="$(date -u +%Y-%m-%dT%H:%M:%SZ)"   -t portfolio .
+```
+
+Without either source the page simply omits the commit — nothing breaks.
+
 A `Dockerfile` is included and the image is published by the workflow in
-`.github/workflows/docker-publish.yml`. That workflow runs independently of the
+`.github/workflows/docker-publish.yml`, which passes both arguments. That workflow runs independently of the
 checks above — add `needs: lint` to it if you want a failing lint to block the
 deploy.

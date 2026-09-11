@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { SearchIcon } from 'lucide-react';
 
+import { buildInfo, formatBuildTime } from '@/lib/build-info';
 import { navigation, profile } from '@/lib/content';
 import { useActiveSection } from '@/lib/use-active-section';
 import { ThemeToggle } from '@/components/theme-toggle';
@@ -72,6 +73,22 @@ export function StatusBar() {
             {current ? `${current.index} ${current.label}` : 'top'}
           </span>
         </span>
+
+        {buildInfo.commitUrl ? (
+          <a
+            href={buildInfo.commitUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            title={
+              buildInfo.builtAt
+                ? `Built ${formatBuildTime(buildInfo.builtAt)}`
+                : undefined
+            }
+            className="mono-xs hidden text-muted-foreground transition-colors hover:text-foreground md:inline"
+          >
+            #{buildInfo.commit}
+          </a>
+        ) : null}
 
         <button
           type="button"

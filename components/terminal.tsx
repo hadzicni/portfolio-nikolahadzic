@@ -4,6 +4,7 @@ import * as React from "react"
 import { useTheme } from "next-themes"
 
 import { cn } from "cn"
+import { buildInfo, formatBuildTime, formatUptime } from "@/lib/build-info"
 import {
   neofetch,
   profile,
@@ -78,6 +79,27 @@ function runCommand(
         kind: "output",
         text: `${key.padEnd(10)} ${value}`,
       })),
+    ]
+  }
+
+  if (command === "uptime") {
+    const { builtAt, commit } = buildInfo
+
+    if (!builtAt) {
+      return [{ kind: "error", text: "no build information in this bundle" }]
+    }
+
+    const clock = new Date().toTimeString().slice(0, 8)
+
+    return [
+      {
+        kind: "accent",
+        text: `${clock} up ${formatUptime(builtAt)}, 1 user`,
+      },
+      {
+        kind: "output",
+        text: `deployed ${commit || "unknown"} on ${formatBuildTime(builtAt)}`,
+      },
     ]
   }
 

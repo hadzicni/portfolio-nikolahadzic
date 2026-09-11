@@ -9,6 +9,7 @@ export const profile = {
   email: 'nikolahadzic7@icloud.com',
   website: 'https://nikolahadzic.dev',
   github: 'https://github.com/hadzicni',
+  repo: 'https://github.com/hadzicni/portfolio-nikolahadzic',
   tagline: 'I build software that stays readable at scale.',
   intro:
     'Full stack developer working across TypeScript, Java and Python. I care about clean architecture, honest abstractions and interfaces that feel obvious to use.',
@@ -214,6 +215,7 @@ export const terminalHelp = [
   ['projects', 'what I have shipped'],
   ['contact', 'how to reach me'],
   ['neofetch', 'system info, sort of'],
+  ['uptime', 'which build is running, and since when'],
   ['theme', 'flip between light and dark'],
   ['clear', 'wipe the screen'],
 ] as const;
