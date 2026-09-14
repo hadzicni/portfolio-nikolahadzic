@@ -1,5 +1,13 @@
 import type { LucideIcon } from 'lucide-react';
-import { Boxes, Container, Database, Layers, TerminalSquare } from 'lucide-react';
+import {
+  Boxes,
+  Container,
+  Database,
+  Layers,
+  ShieldAlert,
+  TerminalSquare,
+  WholeWord,
+} from 'lucide-react';
 
 export const profile = {
   name: 'Nikola Hadzic',
@@ -125,14 +133,33 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    name: 'ssh-tunnel-pwsh',
-    title: 'SSH Tunnel for PowerShell',
+    name: 'ollama-api-bruno-collection',
+    title: 'Ollama API Bruno Collection',
     description:
-      'A straightforward PowerShell helper for opening and managing SSH tunnels on Windows.',
-    language: 'PowerShell',
-    tags: ['PowerShell', 'Networking'],
-    repo: 'https://github.com/hadzicni/ssh-tunnel-pwsh',
-    icon: TerminalSquare,
+      'A comprehensive Bruno collection for the Ollama REST API - local, on your network, or via Ollama Cloud.',
+    language: 'Bruno YML',
+    tags: ['Bruno Collection'],
+    repo: 'https://github.com/hadzicni/ollama-api-bruno-collection',
+    icon: Boxes,
+  },
+  {
+    name: 'wordle',
+    title: 'Wordle',
+    description: '',
+    language: 'TypeScript',
+    tags: ['Next.js', 'TypeScript', 'Docker', 'Self-hosted'],
+    repo: 'https://github.com/hadzicni/wordle',
+    icon: WholeWord,
+  },
+  {
+    name: 'next-404-page',
+    title: 'Next 404 Page',
+    description:
+      'A customizable 404 page built with Next.js, designed to provide a user-friendly experience for visitors who encounter a 404 error on a website.',
+    language: 'TypeScript',
+    tags: ['Next.js', 'TypeScript', 'Docker', 'Self-hosted'],
+    repo: 'https://github.com/hadzicni/next-404-page',
+    icon: ShieldAlert,
   },
 ];
 

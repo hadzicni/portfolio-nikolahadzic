@@ -1,12 +1,12 @@
 import { ArrowUpRightIcon, ExternalLinkIcon, StarIcon } from 'lucide-react';
 
-import { profile } from '@/lib/content';
-import { getProjects, timeAgo, type ProjectEntry } from '@/lib/github';
 import { GithubIcon } from '@/components/icons';
 import { LinkButton } from '@/components/link-button';
 import { Reveal } from '@/components/reveal';
 import { SectionHeading } from '@/components/section-heading';
 import { Badge } from '@/components/ui/badge';
+import { profile } from '@/lib/content';
+import { getProjects, timeAgo, type ProjectEntry } from '@/lib/github';
 
 /** Stars and last push, shown only where GitHub actually answered. */
 function Stats({ project }: { project: ProjectEntry }) {
@@ -36,14 +36,11 @@ export async function Projects() {
   // hand-written tag list to avoid printing it twice.
   const featuredLanguage = featured.stats?.language || featured.language;
   const featuredTags = featured.tags.filter(
-    (tag) => tag.toLowerCase() !== featuredLanguage.toLowerCase()
+    (tag) => tag.toLowerCase() !== featuredLanguage.toLowerCase(),
   );
 
   return (
-    <section
-      id="projects"
-      className="scroll-mt-20 border-t border-border/70 py-20 sm:py-28"
-    >
+    <section id="projects" className="scroll-mt-20 border-t border-border/70 py-20 sm:py-28">
       <SectionHeading
         index="04"
         command="git log --oneline"
@@ -64,17 +61,12 @@ export async function Projects() {
               <span className="mono-xs text-muted-foreground">
                 {profile.handle}/{featured.name}
               </span>
-              <Badge
-                variant="outline"
-                className="ml-auto border-acid/40 text-acid-ink"
-              >
+              <Badge variant="outline" className="ml-auto border-acid/40 text-acid-ink">
                 Featured
               </Badge>
             </div>
 
-            <h3 className="display mt-5 text-4xl sm:text-5xl">
-              {featured.title}
-            </h3>
+            <h3 className="display mt-5 text-4xl sm:text-5xl">{featured.title}</h3>
 
             <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">
               {featured.description}
@@ -93,11 +85,7 @@ export async function Projects() {
 
             <div className="mt-7 flex flex-wrap gap-2.5">
               {featured.demo ? (
-                <LinkButton
-                  href={featured.demo}
-                  external
-                  className="h-9 px-4 text-sm"
-                >
+                <LinkButton href={featured.demo} external className="h-9 px-4 text-sm">
                   <ExternalLinkIcon data-icon="inline-start" />
                   Live demo
                 </LinkButton>
@@ -131,6 +119,7 @@ export async function Projects() {
 
               <span>
                 <span className="flex items-center gap-2 text-xl tracking-tight">
+                  <project.icon className="size-4 text-muted-foreground" />
                   {project.title}
                   <ArrowUpRightIcon className="size-4 text-muted-foreground opacity-0 transition-all group-hover/row:translate-x-0.5 group-hover/row:-translate-y-0.5 group-hover/row:opacity-100" />
                 </span>
@@ -148,12 +137,7 @@ export async function Projects() {
       </ol>
 
       <Reveal delay={60} className="mt-8 flex flex-wrap items-center gap-4">
-        <LinkButton
-          href={profile.github}
-          external
-          variant="outline"
-          className="h-9 px-4 text-sm"
-        >
+        <LinkButton href={profile.github} external variant="outline" className="h-9 px-4 text-sm">
           <GithubIcon data-icon="inline-start" />
           Every repository on GitHub
         </LinkButton>
