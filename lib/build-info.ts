@@ -20,18 +20,30 @@ export const buildInfo = {
   builtAt: builtAt && !Number.isNaN(builtAt.getTime()) ? builtAt : null,
 };
 
-const dateFormat = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'short',
-  year: 'numeric',
-  hour: '2-digit',
-  minute: '2-digit',
-  timeZone: 'UTC',
-});
-
-/** "8 Sep 2026, 14:02 UTC" */
+/** "8 Sep 2026 at 14:02 UTC" */
 export function formatBuildTime(date: Date) {
-  return `${dateFormat.format(date)} UTC`;
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+
+  const day = date.getUTCDate();
+  const month = months[date.getUTCMonth()];
+  const year = date.getUTCFullYear();
+  const hour = String(date.getUTCHours()).padStart(2, '0');
+  const minute = String(date.getUTCMinutes()).padStart(2, '0');
+
+  return `${day} ${month} ${year} at ${hour}:${minute} UTC`;
 }
 
 /**
