@@ -26,15 +26,30 @@ const mono = JetBrains_Mono({
   subsets: ['latin'],
 });
 
+const title = `${profile.name} — ${profile.role}`;
 const description = `${profile.role} in ${profile.location}. ${profile.intro}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.website),
   title: {
-    default: `${profile.name} — ${profile.role}`,
+    default: title,
     template: `%s — ${profile.name}`,
   },
   description,
+  // The image itself comes from `app/opengraph-image.tsx`.
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: profile.name,
+    locale: 'en_US',
+    title,
+    description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
   keywords: [
     profile.name,
     'Software Developer',
