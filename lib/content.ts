@@ -1,5 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 import {
+    Book,
   Boxes,
   Container,
   Database,
@@ -131,7 +132,17 @@ export const projects: Project[] = [
     demo: 'https://kyvora.nikolahadzic.dev',
     icon: Boxes,
     featured: true,
-  },
+    },
+    {
+    name: 'journ',
+    title: 'Journ',
+    description:
+      '',
+    language: 'TypeScript',
+    tags: ['Next.js', 'TypeScript', 'Docker', 'Self-hosted'],
+    repo: 'https://github.com/hadzicni/journ',
+    icon: Book,
+    },
   {
     name: 'ollama-api-bruno-collection',
     title: 'Ollama API Bruno Collection',
