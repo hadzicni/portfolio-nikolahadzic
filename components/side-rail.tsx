@@ -1,5 +1,6 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { GlobeIcon, MailIcon, MapPinIcon, MenuIcon } from 'lucide-react';
 
 import { cn } from 'cn';
@@ -24,8 +25,12 @@ const socials = [
 /**
  * The identity column. Fixed beside the content on large screens, collapsed
  * into a slim bar at the top on small ones.
+ *
+ * `now` fills the space above the social links. It is rendered by the server
+ * and passed in, and only shown when the window is tall enough to fit it
+ * without crowding the navigation.
  */
-export function SideRail() {
+export function SideRail({ now }: { now?: ReactNode }) {
   const active = useActiveSection();
 
   return (
@@ -85,19 +90,27 @@ export function SideRail() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-1">
-          {socials.map((social) => (
-            <LinkButton
-              key={social.label}
-              href={social.href}
-              external={social.external}
-              variant="ghost"
-              size="icon-sm"
-              aria-label={social.label}
-            >
-              <social.icon />
-            </LinkButton>
-          ))}
+        <div>
+          {now ? (
+            <div className="mb-6 hidden [@media(min-height:52rem)]:block">
+              {now}
+            </div>
+          ) : null}
+
+          <div className="flex items-center gap-1">
+            {socials.map((social) => (
+              <LinkButton
+                key={social.label}
+                href={social.href}
+                external={social.external}
+                variant="ghost"
+                size="icon-sm"
+                aria-label={social.label}
+              >
+                <social.icon />
+              </LinkButton>
+            ))}
+          </div>
         </div>
       </aside>
 

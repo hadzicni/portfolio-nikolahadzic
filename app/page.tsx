@@ -1,3 +1,4 @@
+import { NowPanel } from '@/components/now-panel';
 import { SideRail } from '@/components/side-rail';
 import { SiteFooter } from '@/components/site-footer';
 import { StatusBar } from '@/components/status-bar';
@@ -14,7 +15,7 @@ export const revalidate = 3600;
 export default function Home() {
   return (
     <>
-      <SideRail />
+      <SideRail now={<NowPanel />} />
 
       <div className="flex-1 lg:pl-72">
         <div className="mx-auto w-full max-w-3xl px-5 pb-16 sm:px-8 xl:max-w-4xl">
