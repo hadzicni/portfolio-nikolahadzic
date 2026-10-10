@@ -16,7 +16,7 @@ export function Hero() {
       />
 
       <div className="relative pt-16 pb-24 sm:pt-24">
-        <Reveal>
+        <Reveal trigger="load">
           <span className="mono-xs inline-flex items-center gap-2 text-muted-foreground">
             <span className="relative flex size-1.5">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-acid opacity-75" />
@@ -26,7 +26,7 @@ export function Hero() {
           </span>
         </Reveal>
 
-        <Reveal delay={80}>
+        <Reveal trigger="load" delay={80}>
           <h2 className="display mt-6 text-[clamp(2.5rem,6vw,4.75rem)]">
             <ScrambleText text="Nikola Hadzic" />
             <span className="display-soft mt-2 block text-balance text-muted-foreground">
@@ -35,13 +35,13 @@ export function Hero() {
           </h2>
         </Reveal>
 
-        <Reveal delay={160}>
+        <Reveal trigger="load" delay={160}>
           <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted-foreground">
             {profile.intro}
           </p>
         </Reveal>
 
-        <Reveal delay={220} className="mt-8 flex flex-wrap gap-2.5">
+        <Reveal trigger="load" delay={220} className="mt-8 flex flex-wrap gap-2.5">
           <LinkButton href="#projects" size="lg" className="h-10 px-5 text-sm">
             See the work
             <ArrowDownIcon data-icon="inline-end" />
@@ -58,7 +58,7 @@ export function Hero() {
           </LinkButton>
         </Reveal>
 
-        <Reveal delay={300} className="mt-16">
+        <Reveal trigger="load" delay={300} className="mt-16">
           <Terminal />
           <p className="mono-xs mt-3 text-muted-foreground">
             not a screenshot — try{' '}
@@ -68,7 +68,8 @@ export function Hero() {
         </Reveal>
 
         <Reveal
-          delay={80}
+          trigger="load"
+          delay={380}
           as="dl"
           className="mt-16 grid grid-cols-2 border-t border-border/70 sm:grid-cols-4"
         >
