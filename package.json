@@ -32,5 +32,13 @@
     "shadcn": "^4.21.4",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "@next/eslint-plugin-next": {
+      "fast-glob": "npm:tinyglobby@^0.2.17"
+    }
+  },
+  "allowScripts": {
+    "unrs-resolver": false
   }
 }
