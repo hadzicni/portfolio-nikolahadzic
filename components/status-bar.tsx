@@ -27,6 +27,20 @@ function useBaselTime() {
   );
 }
 
+const noopSubscribe = () => () => {};
+
+/**
+ * The palette opens on Ctrl+K everywhere and on ⌘K as well on a Mac, so the
+ * server prints the key that always works and Apple devices swap in their own.
+ */
+function useModifierKey() {
+  return React.useSyncExternalStore(
+    noopSubscribe,
+    () => (/Mac|iPhone|iPad/.test(navigator.userAgent) ? '⌘' : 'Ctrl'),
+    () => 'Ctrl'
+  );
+}
+
 /**
  * A status line pinned to the bottom of the window, in the spirit of tmux or
  * vim: where you are, how far you have scrolled, and what time it is here.
@@ -35,6 +49,7 @@ export function StatusBar() {
   const active = useActiveSection();
   const progressRef = React.useRef<HTMLDivElement>(null);
   const time = useBaselTime();
+  const modifier = useModifierKey();
 
   React.useEffect(() => {
     function onScroll() {
@@ -100,7 +115,7 @@ export function StatusBar() {
           <SearchIcon className="size-3" />
           search
           <KbdGroup>
-            <Kbd>⌘</Kbd>
+            <Kbd>{modifier}</Kbd>
             <Kbd>K</Kbd>
           </KbdGroup>
         </button>

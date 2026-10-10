@@ -27,12 +27,12 @@ export function Hero() {
         </Reveal>
 
         <Reveal trigger="load" delay={80}>
-          <h2 className="display mt-6 text-[clamp(2.5rem,6vw,4.75rem)]">
+          <h1 className="display mt-6 text-[clamp(2.5rem,6vw,4.75rem)]">
             <ScrambleText text="Nikola Hadzic" />
             <span className="display-soft mt-2 block text-balance text-muted-foreground">
               builds software that stays readable at scale.
             </span>
-          </h2>
+          </h1>
         </Reveal>
 
         <Reveal trigger="load" delay={160}>

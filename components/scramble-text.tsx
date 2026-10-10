@@ -12,6 +12,8 @@ const GLYPHS = '!<>-_\\/[]{}—=+*^?#01';
  * The final text is also rendered invisibly underneath so the box keeps its
  * final size — without it a proportional font makes the line jump around while
  * the random glyphs cycle. Skipped when the visitor asked for reduced motion.
+ *
+ * Screen readers get the plain text only, never the glyphs in between.
  */
 export function ScrambleText({
   text,
@@ -66,10 +68,13 @@ export function ScrambleText({
 
   return (
     <span className={cn('relative inline-block', className)}>
+      <span className="sr-only">{text}</span>
       <span aria-hidden className="invisible">
         {text}
       </span>
-      <span className="absolute inset-0">{output}</span>
+      <span aria-hidden className="absolute inset-0">
+        {output}
+      </span>
     </span>
   );
 }

@@ -42,7 +42,7 @@ export function SideRail({ now }: { now?: ReactNode }) {
             <span className="mono-xs text-muted-foreground">
               {profile.handle}
             </span>
-            <h1 className="display mt-1 text-3xl">{profile.name}</h1>
+            <p className="display mt-1 text-3xl">{profile.name}</p>
             <p className="mt-2 text-sm text-muted-foreground">
               {profile.role}
             </p>
