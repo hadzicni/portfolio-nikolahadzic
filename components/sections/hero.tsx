@@ -1,10 +1,10 @@
 import { ArrowDownIcon } from 'lucide-react';
 
-import { facts, profile } from '@/lib/content';
+import { facts, nameMorphs, profile } from '@/lib/content';
+import { GlyphName } from '@/components/glyph-text';
 import { GithubIcon } from '@/components/icons';
 import { LinkButton } from '@/components/link-button';
 import { Reveal } from '@/components/reveal';
-import { ScrambleText } from '@/components/scramble-text';
 import { Terminal } from '@/components/terminal';
 
 export function Hero() {
@@ -28,7 +28,7 @@ export function Hero() {
 
         <Reveal trigger="load" delay={80}>
           <h1 className="display mt-6 text-[clamp(2.5rem,6vw,4.75rem)]">
-            <ScrambleText text="Nikola Hadzic" />
+            <GlyphName text={profile.name} words={nameMorphs} />
             <span className="display-soft mt-2 block text-balance text-muted-foreground">
               builds software that stays readable at scale.
             </span>

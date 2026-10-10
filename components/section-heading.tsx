@@ -1,5 +1,6 @@
 import { cn } from 'cn';
 
+import { GlyphTitle } from '@/components/glyph-text';
 import { Reveal } from '@/components/reveal';
 
 /**
@@ -34,7 +35,9 @@ export function SectionHeading({
         <span className="mono-xs text-acid-ink">{command}</span>
       </div>
 
-      <h2 className="display mt-4 text-4xl sm:text-5xl">{title}</h2>
+      <h2 className="display mt-4 text-4xl sm:text-5xl">
+        <GlyphTitle text={title} />
+      </h2>
 
       {description ? (
         <p className="mt-4 max-w-xl leading-relaxed text-muted-foreground">

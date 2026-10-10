@@ -6,8 +6,17 @@ import { bootLines } from "@/lib/content"
 
 const LINE_DELAY = 150
 
+/** Fired as the overlay starts to leave, so the page can begin its entrance. */
+export const BOOT_DONE_EVENT = "boot:done"
+
 /** Cached so the external-store snapshot stays stable across renders. */
 let decision: boolean | null = null
+let finished = false
+
+/** Whether the overlay is on screen, or about to be. Client only. */
+export function bootPending() {
+  return shouldBoot() && !finished
+}
 
 function shouldBoot() {
   if (decision === null) {
@@ -66,6 +75,12 @@ export function BootScreen() {
       document.body.style.overflow = ""
     }
   }, [enabled, done])
+
+  React.useEffect(() => {
+    if (!leaving || finished) return
+    finished = true
+    window.dispatchEvent(new Event(BOOT_DONE_EVENT))
+  }, [leaving])
 
   if (!enabled || done) return null
 

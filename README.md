@@ -17,6 +17,15 @@ bottom of the window in the spirit of tmux.
 ## What is on the page
 
 - A boot sequence in a floating terminal window, once per browser session.
+- The hero name drawn in code glyphs that run from the pointer. A click morphs
+  it into other words, scrolling away scatters it. Section titles assemble from
+  the same glyphs when they come into view and stay that way
+  (`lib/glyph-field.ts`).
+- The toolbox printed like `tree` output, one line after another.
+- A contact form shaped like a shell script. Sending hands subject and message
+  to the visitor's own mail app; nothing passes through a server.
+- The side rail's navigation as a server rack. The unit for the section in
+  view slides out.
 - A working shell in the hero. Type `help`, `whoami`, `stack`, `projects`,
   `contact`, `neofetch`, `uptime`, `theme` or `clear`. Arrow keys walk the
   history.
@@ -28,9 +37,10 @@ bottom of the window in the spirit of tmux.
   push come from the GitHub API. A failed request falls back to the copy in
   `lib/content.ts`.
 - A 404 page that answers the way a shell would.
-- Scroll reveals, a scrambling headline and a slow keyword ticker.
+- Scroll reveals and a slow keyword ticker.
 
-Every motion effect is disabled under `prefers-reduced-motion`.
+Every motion effect is disabled under `prefers-reduced-motion`. Without
+JavaScript the glyphs and the rack fall back to plain text and links.
 
 ## Development
 

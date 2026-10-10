@@ -3,11 +3,10 @@
 import type { ReactNode } from 'react';
 import { GlobeIcon, MailIcon, MapPinIcon, MenuIcon } from 'lucide-react';
 
-import { cn } from 'cn';
 import { navigation, profile } from '@/lib/content';
-import { useActiveSection } from '@/lib/use-active-section';
 import { GithubIcon } from '@/components/icons';
 import { LinkButton } from '@/components/link-button';
+import { RackNav } from '@/components/rack-nav';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -31,8 +30,6 @@ const socials = [
  * without crowding the navigation.
  */
 export function SideRail({ now }: { now?: ReactNode }) {
-  const active = useActiveSection();
-
   return (
     <>
       {/* Desktop rail */}
@@ -53,46 +50,12 @@ export function SideRail({ now }: { now?: ReactNode }) {
             {profile.location}
           </p>
 
-          <nav className="mt-12 flex flex-col gap-px">
-            {navigation.map((item) => {
-              const current = active === item.href;
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    'group/nav flex items-baseline gap-3 py-2 text-sm transition-colors',
-                    current
-                      ? 'text-foreground'
-                      : 'text-muted-foreground hover:text-foreground'
-                  )}
-                >
-                  <span
-                    className={cn(
-                      'mono-xs transition-colors',
-                      current ? 'text-acid-ink' : 'text-muted-foreground/60'
-                    )}
-                  >
-                    {item.index}
-                  </span>
-                  <span className="relative">
-                    {item.label}
-                    <span
-                      className={cn(
-                        'absolute -bottom-0.5 left-0 h-px bg-acid transition-all duration-300',
-                        current ? 'w-full' : 'w-0 group-hover/nav:w-full'
-                      )}
-                    />
-                  </span>
-                </a>
-              );
-            })}
-          </nav>
+          <RackNav />
         </div>
 
         <div>
           {now ? (
-            <div className="mb-6 hidden [@media(min-height:52rem)]:block">
+            <div className="mb-6 hidden [@media(min-height:53.5rem)]:block">
               {now}
             </div>
           ) : null}

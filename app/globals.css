@@ -362,6 +362,63 @@
   [data-reveal="load"] {
     animation: reveal 700ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms) both;
   }
+
+  /*
+   * Glyph text. The real words stay in the DOM and only turn transparent
+   * while the canvas over them draws the glyphs.
+   */
+  [data-glyphs="armed"] > [data-glyph-text],
+  [data-glyphs="live"] > [data-glyph-text] {
+    color: transparent;
+  }
+  [data-glyphs="live"] {
+    cursor: crosshair;
+  }
+
+  /*
+   * Terminal output that prints line by line once its Reveal is shown. Each
+   * line carries its position as `--line`; like the reveals, it only starts
+   * hidden when scripting is on.
+   */
+  @keyframes print-line {
+    from {
+      visibility: hidden;
+    }
+  }
+  @media (scripting: enabled) {
+    [data-reveal="scroll"] [data-line] {
+      visibility: hidden;
+    }
+  }
+  /*
+   * `backwards`, not `both`: the line is only held back during its delay and
+   * let go entirely afterwards. With `both`, a delay that lands a hair off in
+   * floating point leaves some lines stuck on the hidden first frame.
+   */
+  [data-reveal="shown"] [data-line] {
+    animation: print-line 1ms calc(var(--line, 0) * 35ms) backwards;
+  }
+
+  /* Progress bars grow to their width once their Reveal is shown. */
+  [data-progress] {
+    transition: width 1400ms cubic-bezier(0.16, 1, 0.3, 1) 300ms;
+  }
+  @media (scripting: enabled) {
+    [data-reveal="scroll"] [data-progress] {
+      width: 0;
+    }
+  }
+
+
+  /* Status lights on the rack. Each one sets its own pace. */
+  @keyframes led {
+    50% {
+      opacity: 0.25;
+    }
+  }
+  .animate-led {
+    animation: led var(--led-speed, 1.2s) steps(1) infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -369,7 +426,8 @@
     scroll-behavior: auto;
   }
   .animate-marquee,
-  .animate-blink {
+  .animate-blink,
+  .animate-led {
     animation: none;
   }
   .lift:hover {
@@ -380,5 +438,12 @@
     transform: none;
     transition: none;
     animation: none;
+  }
+  [data-reveal] [data-line] {
+    visibility: visible;
+    animation: none;
+  }
+  [data-progress] {
+    transition: none;
   }
 }
