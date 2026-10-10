@@ -1,7 +1,8 @@
 import type { LucideIcon } from 'lucide-react';
 import {
-    Book,
+  Book,
   Boxes,
+  Braces,
   Container,
   Database,
   Layers,
@@ -132,17 +133,17 @@ export const projects: Project[] = [
     demo: 'https://kyvora.nikolahadzic.dev',
     icon: Boxes,
     featured: true,
-    },
-    {
+  },
+  {
     name: 'journ',
     title: 'Journ',
     description:
-      '',
+      'Turns rough notes about the day into a clean journal entry, using Ollama or any OpenAI-compatible model. It keeps every detail and invents nothing that is not in the notes.',
     language: 'TypeScript',
-    tags: ['Next.js', 'TypeScript', 'Docker', 'Self-hosted'],
+    tags: ['Next.js', 'TypeScript', 'Ollama', 'LLM'],
     repo: 'https://github.com/hadzicni/journ',
     icon: Book,
-    },
+  },
   {
     name: 'ollama-api-bruno-collection',
     title: 'Ollama API Bruno Collection',
@@ -151,14 +152,15 @@ export const projects: Project[] = [
     language: 'Bruno YML',
     tags: ['Bruno Collection'],
     repo: 'https://github.com/hadzicni/ollama-api-bruno-collection',
-    icon: Boxes,
+    icon: Braces,
   },
   {
     name: 'wordle',
     title: 'Wordle',
-    description: '',
+    description:
+      'Wordle in German: a new word every day plus an endless mode, with statistics and streaks kept in the browser.',
     language: 'TypeScript',
-    tags: ['Next.js', 'TypeScript', 'Docker', 'Self-hosted'],
+    tags: ['Next.js', 'TypeScript', 'Docker'],
     repo: 'https://github.com/hadzicni/wordle',
     icon: WholeWord,
   },
@@ -168,7 +170,7 @@ export const projects: Project[] = [
     description:
       'A customizable 404 page built with Next.js, designed to provide a user-friendly experience for visitors who encounter a 404 error on a website.',
     language: 'TypeScript',
-    tags: ['Next.js', 'TypeScript', 'Docker', 'Self-hosted'],
+    tags: ['Next.js', 'TypeScript', 'Docker'],
     repo: 'https://github.com/hadzicni/next-404-page',
     icon: ShieldAlert,
   },
